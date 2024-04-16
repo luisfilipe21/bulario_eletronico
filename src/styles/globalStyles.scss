@@ -1,0 +1,26 @@
+:root{
+
+    --color-1: #1E0447ff;
+    --color-2: #D6A300ff;
+    --color-3: #00968Fff;
+    --color-4: #AED7CEff;
+    --color-5: #78AF9Fff;
+    --white: #Fcfcfc;
+    --black: #010000;
+    
+    --font-1: "Roboto", sans-serif;
+
+    --size-1: 80px;
+    --size-2: 40px;
+    --size-3: 26px;
+    --size-4: 18px;
+ 
+    --weight-1: 900;
+    --weight-2: 500;
+    --weight-3: 400;
+}
+
+body{
+    background: linear-gradient(var(--black), 95%, var(--gray));
+    
+}
