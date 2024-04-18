@@ -3,6 +3,7 @@ import { FaRegFilePdf } from "react-icons/fa6";
 
 export const Card = ({ drugs }) => {
     let activePrinciples = drugs.active_principles?.map((item) => item.name);
+    let fullActive = activePrinciples[0] + " " + activePrinciples[1];
 
     return (
         <div className={style.cardContainer}>
@@ -25,7 +26,9 @@ export const Card = ({ drugs }) => {
                 {activePrinciples && (
                     <div>
                         <p className={`title-4 ${style.active_principles}`}>Princípio Ativo:</p>
-                        <p className={`title-4`}> {activePrinciples}</p>
+                        <p className={`title-4 ${style.flex}`}>
+                            {activePrinciples.length == 2 ? fullActive : activePrinciples}
+                        </p>
                     </div>
                 )}
             </div>

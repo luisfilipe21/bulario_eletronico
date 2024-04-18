@@ -1,11 +1,12 @@
 import style from "./style.module.scss";
+import { IoSearch } from "react-icons/io5";
 
 export const SearchForm = ({ handleSearch, setInputText }) => {
     return (
         <div className="container">
             <div className={style.divInput}>
                 <input type="text" placeholder="Medicamento ou Farmácia" onChange={handleSearch} />
-                <button type="submmit"><img src="src/assets/react.svg" alt="Pesquisar" /></button>
+                <button type="submmit"><IoSearch size={20} /></button>
             </div>
             <div >
                 <form>

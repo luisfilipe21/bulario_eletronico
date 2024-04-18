@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { SearchForm } from "./forms/SearchForm"
 import { api } from "../service/api"
 import style from "./style.module.scss"
-import { BiCalculator } from "react-icons/bi";
 import { Card } from "./Card"
 
 
@@ -25,7 +24,7 @@ export const Home = () => {
     }
 
     const handleDownloadBula = (e) => {
-        
+
     }
 
 
