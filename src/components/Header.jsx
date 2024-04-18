@@ -1,7 +1,9 @@
+import style from "./style.module.scss";
+
 export const Header = () => {
     return (
-        <header>
-            <h1>Bulário Eletrônico</h1>
+        <header className={`container ${style.header}`}>
+            <h1 className="title-1">Bulário Eletrônico</h1>
         </header>
     )
 }

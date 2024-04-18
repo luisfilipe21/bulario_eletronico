@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+
+
+
+.cardBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .cardContainer {
+        max-width: 250px;
+        padding: 1rem;
+
+        .card {
+
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 350px;
+            justify-content: space-between;
+            background-color: var(--color-4);
+            padding-bottom: 1rem;
+        }
+    }
+}

@@ -4,23 +4,22 @@
     --color-2: #D6A300ff;
     --color-3: #00968Fff;
     --color-4: #AED7CEff;
-    --color-5: #78AF9Fff;
     --white: #Fcfcfc;
     --black: #010000;
     
     --font-1: "Roboto", sans-serif;
 
     --size-1: 80px;
-    --size-2: 40px;
-    --size-3: 26px;
-    --size-4: 18px;
+    --size-2: 20px;
+    --size-3: 18px;
+    --size-4: 12px;
  
     --weight-1: 900;
-    --weight-2: 500;
+    --weight-2: 600;
     --weight-3: 400;
 }
 
 body{
-    background: linear-gradient(var(--black), 95%, var(--gray));
-    
+    background: linear-gradient(var(--white), lightgray);
+    font-family: var(--font-1);
 }

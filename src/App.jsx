@@ -1,7 +1,6 @@
 import "./styles/index.scss"
 import { Home } from "./components/Home"
 import { Header } from "./components/Header"
-import { Modal } from "./components/Modal"
 
 function App() {
 
@@ -9,7 +8,6 @@ function App() {
     <>
       <Header />
       <Home />
-      <Modal />
     </>
   )
 }
