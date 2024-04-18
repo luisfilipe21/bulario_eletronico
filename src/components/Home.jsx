@@ -25,9 +25,8 @@ export const Home = () => {
     }
 
     const handleDownloadBula = (e) => {
-
+        
     }
-    // console.log(inputText)
 
 
     useEffect(() => {

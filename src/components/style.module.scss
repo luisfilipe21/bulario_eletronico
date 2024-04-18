@@ -12,13 +12,16 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1rem;
+    
 
     .cardContainer {
-        max-width: 250px;
+        max-width: 290px;
         padding: 1rem;
+        border-radius: 8px;
 
         .card {
-
+            position: relative;
+            border-radius: 8px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -27,6 +30,17 @@
             justify-content: space-between;
             background-color: var(--color-4);
             padding-bottom: 1rem;
+
+            .pdfIcon{
+                position: absolute;
+                bottom: 40px;
+                right: 10px;
+                cursor: pointer;
+            }
+            .active_principles{
+                text-align: center;
+                margin-bottom: 0.3125rem;
+            }
         }
     }
 }

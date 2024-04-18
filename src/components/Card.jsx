@@ -1,7 +1,9 @@
 import style from "./style.module.scss"
+import { FaRegFilePdf } from "react-icons/fa6";
 
 export const Card = ({ drugs }) => {
-    console.log(drugs)
+    let activePrinciples = drugs.active_principles?.map((item) => item.name);
+
     return (
         <div className={style.cardContainer}>
             <div className={style.card}>
@@ -19,7 +21,13 @@ export const Card = ({ drugs }) => {
                     </div>
                     <div className="bodyColorBlack"></div>
                 </div>
-                <span><img sr="src/assets/react.svg" alt="Bula Paciente" title="Bula" /></span>
+                <span className={style.pdfIcon}><FaRegFilePdf /></span>
+                {activePrinciples && (
+                    <div>
+                        <p className={`title-4 ${style.active_principles}`}>Princípio Ativo:</p>
+                        <p className={`title-4`}> {activePrinciples}</p>
+                    </div>
+                )}
             </div>
         </div>
     )
