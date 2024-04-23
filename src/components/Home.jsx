@@ -9,47 +9,64 @@ export const Home = () => {
 
     const [bula, setBula] = useState([])
     const [inputText, setInputText] = useState("")
-    const [searchValue, setsearchValue] = useState("name")
+    const [radioValue, setRadioValue] = useState("name")
     const [currentPage, setCurrentPage] = useState(0)
-
-    // const pageNumber = Math.ceil(bula.length / 10)
-
-    // const initialPage = currentPage * 10
-
-    // const itemsPerPage = bula.slice(initialPage, initialPage + 10);
-    // const itemOrder = itemsPerPage.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
 
     const handleSearch = (e) => {
         setInputText(e.target.value.toUpperCase())
     }
 
-    const handleDownloadBula = (e) => {
-
+    const handlePageChange = (value) => {
+        setCurrentPage(value - 1)
     }
+
+    const handleDownload = (pdf) => {
+        window.open(pdf, "_blank")
+    }
+
+    const getFilteredData = (input, items, radio) => {
+        if (!input) return items
+
+        if (radio === "name") {
+            return items.filter(item => item.name.includes(input))
+        } else if (radio === "company") {
+            return items.filter(item => item.company.includes(input))
+        }
+    }
+
+    const pageNumber = Math.ceil(bula.length / 10)
+    const filteredItems = getFilteredData(inputText, bula, radioValue)
+    const initialPage = currentPage * 10
+
+    const itemsPerPage = filteredItems.slice(initialPage, initialPage + 10);
+    const itemOrder = itemsPerPage.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
 
 
     useEffect(() => {
-        const getData = async () => {
+        const fetchData = async () => {
             try {
-                const { data } = await api.get("/")
-                setBula(data)
+                const { data } = await api.get(`?_${radioValue}?_${inputText}`);
 
+                setBula(data)
             } catch (error) {
                 console.log(error)
             }
-
         }
-        getData();
+        fetchData()
+    }, [inputText, radioValue])
 
-    }, [])
 
     return (
         <div className={`container ${style.body}`}>
-            <SearchForm setInputText={setInputText} handleSearch={handleSearch} />
+            <SearchForm setInputText={setInputText} handleSearch={handleSearch} setRadioValue={setRadioValue} />
             <ul className={style.cardBox}>
                 {
-                    bula.map((drugs) =>
-                        <Card key={drugs.id} drugs={drugs} />
+                    itemOrder.map((drugs) =>
+                        <Card
+                            key={drugs.id}
+                            drugs={drugs}
+                            handleDownload={handleDownload}
+                        />
                     )
                 }
             </ul>

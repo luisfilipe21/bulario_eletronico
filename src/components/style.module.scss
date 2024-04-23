@@ -3,6 +3,10 @@
     justify-content: center;
     align-items: center;
     height: 30vh;
+
+    @media(min-width: 368px) {
+        text-align: center;
+    }
 }
 
 
@@ -12,7 +16,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1rem;
-    
+
 
     .cardContainer {
         max-width: 290px;
@@ -31,16 +35,38 @@
             background-color: var(--color-4);
             padding-bottom: 1rem;
 
-            .pdfIcon{
+            .pdfIcon {
                 position: absolute;
                 bottom: 40px;
                 right: 10px;
                 cursor: pointer;
             }
-            .active_principles{
+
+            .active_principles {
                 text-align: center;
                 margin-bottom: 0.3125rem;
             }
+
+            .date{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 0.3125rem;
+                color: white;
+                height: 60%;
+            }
+            .date_time{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 0.3125rem;
+                color: white;
+                height: 10%;
+            }
         }
+    }
+
+    @media(min-width: 368px) {
+        justify-content: center;
     }
 }

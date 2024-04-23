@@ -1,9 +1,10 @@
 import style from "./style.module.scss"
 import { FaRegFilePdf } from "react-icons/fa6";
 
-export const Card = ({ drugs }) => {
+export const Card = ({ drugs, handleDownload }) => {
+
     let activePrinciples = drugs.active_principles?.map((item) => item.name);
-    let fullActive = activePrinciples[0] + " " + activePrinciples[1];
+    let fullActive = activePrinciples[0] + ", " + activePrinciples[1];
 
     return (
         <div className={style.cardContainer}>
@@ -20,9 +21,12 @@ export const Card = ({ drugs }) => {
 
                         <p className="bodyGeneric">Medicamento <span>Genérico</span></p>
                     </div>
-                    <div className="bodyColorBlack"></div>
+                    <div className="bodyColorBlack">
+                        <p className={`title-4 ${style.date}`}>Data de Publicação: </p>
+                        <p className={`title-4 ${style.date_time}`}>{new Date(drugs.published_at).toLocaleDateString("pt-BR")} </p>
+                    </div>
                 </div>
-                <span className={style.pdfIcon}><FaRegFilePdf /></span>
+                <span className={style.pdfIcon} onClick={() => handleDownload(drugs.documents[0].url)}><FaRegFilePdf /></span>
                 {activePrinciples && (
                     <div>
                         <p className={`title-4 ${style.active_principles}`}>Princípio Ativo:</p>
