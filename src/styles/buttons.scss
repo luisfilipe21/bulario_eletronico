@@ -6,4 +6,11 @@
     border: none;
     width: 45px;
     height: 45px;
+    cursor: pointer;
+
+    &:hover{
+        color: var(--color-5);  
+        background-color: var(--color-6);
+        transition: 0.5s;
+    }
 }
