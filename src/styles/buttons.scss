@@ -11,6 +11,7 @@
     &:hover{
         color: var(--color-5);  
         background-color: var(--color-6);
+        border: 1px solid var(--color-5);
         transition: 0.5s;
     }
 }

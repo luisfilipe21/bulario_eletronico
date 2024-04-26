@@ -9,9 +9,9 @@ export const Pagination = ({ handlePageChange, filteredItems, itemsPerPage }) =>
                     length: Math.ceil(filteredItems.length / itemsPerPage)
                 }).map((_, i) => (
                     <li key={i}>
-                        <button 
-                        onClick={() => handlePageChange(i)}
-                        className="button">{i + 1}</button>
+                        <button
+                            onClick={() => handlePageChange(i)}
+                            className="button">{i + 1}</button>
                     </li>
                 )
                 )
