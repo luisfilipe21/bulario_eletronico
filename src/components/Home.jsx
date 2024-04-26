@@ -3,21 +3,21 @@ import { SearchForm } from "./forms/SearchForm"
 import { api } from "../service/api"
 import style from "./style.module.scss"
 import { Card } from "./Card"
-
+import { Pagination } from "./Pagination"
 
 export const Home = () => {
 
     const [bula, setBula] = useState([])
     const [inputText, setInputText] = useState("")
     const [radioValue, setRadioValue] = useState("name")
-    const [currentPage, setCurrentPage] = useState(0)
+    const [itemOffset, setItemOffset] = useState(0)
 
     const handleSearch = (e) => {
         setInputText(e.target.value.toUpperCase())
     }
 
-    const handlePageChange = (value) => {
-        setCurrentPage(value - 1)
+    const handlePageChange = (e) => {
+        setItemOffset(e)
     }
 
     const handleDownload = (pdf) => {
@@ -34,11 +34,13 @@ export const Home = () => {
         }
     }
 
-    const pageNumber = Math.ceil(bula.length / 10)
     const filteredItems = getFilteredData(inputText, bula, radioValue)
-    const initialPage = currentPage * 10
 
+    const numberOfPages = Math.ceil(bula.length / 10)
+
+    const initialPage = itemOffset * 10
     const itemsPerPage = filteredItems.slice(initialPage, initialPage + 10);
+
     const itemOrder = itemsPerPage.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
 
 
@@ -70,6 +72,13 @@ export const Home = () => {
                     )
                 }
             </ul>
+
+            <div>
+                <Pagination 
+                handlePageChange={handlePageChange}
+                filteredItems={filteredItems}
+                itemsPerPage={10} />
+            </div>
         </div>
     )
 }
